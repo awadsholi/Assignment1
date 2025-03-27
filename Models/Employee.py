@@ -4,9 +4,9 @@
 
 
 class Employee:
-    def __init__(self,name:str,age:int,salary:float,department:str):
+    def __init__(self, name: str, age: int, salary: float, department: str):
         self.name = name
-        self.age  = age
+        self.age = age
         self.salary = salary
         self.department = department
 
@@ -53,6 +53,14 @@ class Employee:
     def department(self,department):
         self.__department = department
 
+    def give_raise(self,raise_amount):
+        self.salary += raise_amount
+
+    def __repr__(self):
+        return (f"Employee(name='{self.name}', age={self.age}, "
+                f"salary={self.salary}, department='{self.department}')")
+
+
 
 class Developer(Employee):
     def __init__(self,name:str,age:int,salary:float,department:str,language:str):
@@ -73,6 +81,10 @@ class Developer(Employee):
     def language(self,language):
         self.__language = language
 
+    def __repr__(self):
+        return (f"Developer(name='{self.name}', age={self.age}, "
+                f"salary={self.salary}, department='{self.department}', "
+                f"language='{self.language}')")
 
 
 class Manager(Employee):
@@ -94,3 +106,7 @@ class Manager(Employee):
     def team_size(self,team_members_number):
         self.__team_members_number = team_members_number
 
+    def __repr__(self):
+        return (f"Manager(name='{self.name}', age={self.age}, "
+                f"salary={self.salary}, department='{self.department}', "
+                f"team_size={self.team_members_number})")
